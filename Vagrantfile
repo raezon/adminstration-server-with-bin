@@ -11,7 +11,7 @@
 
 Vagrant.configure("2") do |config|
   # Utiliser une image Ubuntu légère
-  config.vm.box = "bento/ubuntu-20.04"
+  config.vm.box = "hashicorp/bionic64"
 
   # Configurer VirtualBox comme fournisseur
   config.vm.provider "virtualbox" do |vb|

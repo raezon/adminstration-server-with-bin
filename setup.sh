@@ -43,8 +43,15 @@ sudo systemctl enable nginx
 
 # Copie du script dans /usr/local/bin (ou /usr/bin) et attribution des permissions d'exécution
 echo "Copie du script dans /usr/local/bin/setup-bind-nginx.sh et attribution des permissions d'exécution..."
-sudo cp /tmp/setup-bind-nginx.sh /usr/local/bin/setup-bind-nginx.sh
+sudo cp /vagrant/setup-bind-nginx.sh /usr/local/bin/setup-bind-nginx.sh
 sudo chmod +x /usr/local/bin/setup-bind-nginx.sh
+
+
+# Copie du script dans /usr/local/bin (ou /usr/bin) et attribution des permissions d'exécution
+echo "Copie du script dans /usr/local/bin/setup-web-app.sh et attribution des permissions d'exécution..."
+sudo cp /vagrant/setup-web-app.sh /usr/local/bin/setup-web-app.sh
+sudo chmod +x /usr/local/bin/setup-web-app.sh
+
 
 echo "Configuration terminée !"
 echo "Vous pouvez vous connecter avec l'utilisateur suivant :"
