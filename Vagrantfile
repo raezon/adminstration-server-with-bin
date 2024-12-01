@@ -6,19 +6,28 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 # Vagrantfile
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant.configure("2") do |config|
-  # Configuration de la machine
-  config.vm.box = "bento/ubuntu-20.04" # Ubuntu 20.04 légère
-  config.vm.provider "hyperv" do |hyperv|
-    hyperv.memory = 2048 # Mémoire de 2 Go
-    hyperv.cpus = 2      # 2 processeurs
+  # Utiliser une image Ubuntu légère
+  config.vm.box = "bento/ubuntu-20.04"
+
+  # Configurer VirtualBox comme fournisseur
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true # Afficher l'interface graphique
+    vb.memory = "2048" # Allouer 2 Go de RAM
+    vb.cpus = 2        # Allouer 2 processeurs
   end
 
-  # Configuration réseau
-  config.vm.network "private_network", type: "dhcp"
+  # Configuration réseau avec une adresse IP statique
+  config.vm.network "private_network", type: "static", ip: "192.168.50.4"
 
-  # Provisionnement
+
+  # Provisionnement avec un script shell
   config.vm.provision "shell", path: "setup.sh"
+
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
